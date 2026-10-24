@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기후 기밀 프로젝트 : 지중해의 청개구리 암호 (C-s-a)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap');
+    body { font-family: 'Pretendard', sans-serif; }
+    .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+    .cipher-slot { box-shadow: inset 0 2px 6px rgba(0,0,0,0.6); }
+    .scanline {
+      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3));
+      background-size: 100% 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col scanline">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl font-bold">
+        <i class="fa-solid fa-satellite-dish"></i>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-lg font-black tracking-wider text-white">OPERATION : MEDITERRANEAN</h1>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 uppercase">Classified</span>
+        </div>
+        <p class="text-xs text-slate-400">지중해성 기후(Csa) 역전 암호 및 생활 양식 분석 콘솔</p>
+      </div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="flex items-center gap-2 text-xs font-mono">
+      <span class="text-slate-400">작전 진행도:</span>
+      <div class="flex gap-1.5" id="stepPills">
+        <span class="px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 font-bold" id="pillStage1">STEP 1. 암호 해독</span>
+        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 font-bold" id="pillStage2">STEP 2. 특징 프로파일링</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col gap-6">
+
+    <!-- ========================================== -->
+    <!-- STAGE 1: 3-DIGIT CIPHER DECRYPTION (기호 해독) -->
+    <!-- ========================================== -->
+    <section id="sectionStage1" class="flex flex-col gap-6">
+      
+      <!-- Top: Master Security Terminal -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-wrap items-center justify-between gap-6">
+        <div>
+          <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest block mb-1">Target Code Locked</span>
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            미제 지역 X의 3자리 기후 암호체계를 해독하라
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">우리나라와 정반대로 작동하는 "청개구리 계절 역전 현상"의 단서를 순서대로 추적하세요.</p>
+        </div>
+
+        <!-- 3-Slot Cipher Display -->
+        <div class="flex items-center gap-2 font-mono-code text-3xl font-black">
+          <div id="slot1" class="w-16 h-20 rounded-xl bg-slate-950 border-2 border-dashed border-slate-700 flex flex-col items-center justify-center text-slate-600 cipher-slot transition-all">
+            <span class="text-2xl" id="slot1Text">?</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5">체급</span>
+          </div>
+          <span class="text-slate-600 font-normal">-</span>
+          <div id="slot2" class="w-16 h-20 rounded-xl bg-slate-950 border-2 border-dashed border-slate-700 flex flex-col items-center justify-center text-slate-600 cipher-slot transition-all">
+            <span class="text-2xl" id="slot2Text">?</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5">강수</span>
+          </div>
+          <span class="text-slate-600 font-normal">-</span>
+          <div id="slot3" class="w-16 h-20 rounded-xl bg-slate-950 border-2 border-dashed border-slate-700 flex flex-col items-center justify-center text-slate-600 cipher-slot transition-all">
+            <span class="text-2xl" id="slot3Text">?</span>
+            <span class="text-[9px] text-slate-500 font-sans mt-0.5">여름열기</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Grid: Data Dossier & Interactive Locks -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Left: Weather Evidence Terminal (5 cols) -->
+        <div class="lg:col-span-5 flex flex-col gap-4">
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+              <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-2">
+                <i class="fa-solid fa-file-invoice"></i> 현지 관측 기상 데이터
+              </span>
+              <span class="text-xs font-mono text-slate-400">위도 38°N 연안 관측소</span>
+            </div>
+
+            <!-- Key Indicators -->
+            <div class="grid grid-cols-2 gap-3 mb-4 text-xs">
+              <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3">
+                <span class="text-slate-400 block mb-1">가장 추운 달(1월) 평균기온</span>
+                <span class="text-base font-bold font-mono text-white">8.5℃ <span class="text-[11px] text-emerald-400 font-normal">(온화)</span></span>
+              </div>
+              <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3">
+                <span class="text-slate-400 block mb-1">가장 더운 달(7월) 평균기온</span>
+                <span class="text-base font-bold font-mono text-white">25.8℃ <span class="text-[11px] text-rose-400 font-normal">(고온)</span></span>
+              </div>
+              <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3">
+                <span class="text-slate-400 block mb-1">여름철(7월) 강수량</span>
+                <span class="text-base font-bold font-mono text-amber-400">6 mm <span class="text-[11px] text-amber-300 font-normal">(극건조)</span></span>
+              </div>
+              <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3">
+                <span class="text-slate-400 block mb-1">겨울철(1월) 강수량</span>
+                <span class="text-base font-bold font-mono text-cyan-400">115 mm <span class="text-[11px] text-cyan-300 font-normal">(습윤 우기)</span></span>
+              </div>
+            </div>
+
+            <!-- Chart Profile -->
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-semibold text-slate-300">월별 기온(선) 및 강수량(막대) 프로파일</span>
+                <div class="flex gap-2 text-[10px] font-mono">
+                  <span class="text-rose-400">● 기온</span>
+                  <span class="text-sky-400">■ 강수</span>
+                </div>
+              </div>
+              <div class="h-28 flex items-end gap-1 pt-3" id="chartBars">
+                <!-- Generated by JS -->
+              </div>
+              <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1 px-1">
+                <span>1월</span><span>3월</span><span>5월</span><span>7월 (폭염+가뭄)</span><span>9월</span><span>11월</span>
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-start gap-2.5">
+              <i class="fa-solid fa-triangle-exclamation text-sm mt-0.5 flex-shrink-0"></i>
+              <div>
+                <strong class="font-bold">한국과의 결정적 모순 발견:</strong>
+                <p class="text-[11px] text-amber-200/80 mt-0.5">한국은 여름에 장마와 폭우가 쏟아지지만, 이 도시는 7월 강수량이 6mm에 불과합니다. 비가 겨울에 집중되는 청개구리 구조입니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Lock 1, 2, 3 Interactive Steps (7 cols) -->
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          
+          <!-- Step 1 Box -->
+          <div id="step1Box" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 transition-all border-l-4 border-l-cyan-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">자물쇠 1 : 기본 체급(대문자) 해독</span>
+              <span id="badgeStep1" class="text-xs px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono">해독 진행 중</span>
+            </div>
+            <p class="text-xs text-slate-300 mb-3">
+              최한월(가장 추운 1월) 평균기온이 <strong>8.5℃</strong>입니다. 쾨펜의 체급 기준에 부합하는 대문자는?
+            </p>
+            <div class="grid grid-cols-4 gap-2">
+              <button onclick="checkStep1('A')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 hover:bg-slate-800 transition text-center">
+                <span class="block font-bold font-mono text-base text-cyan-400">A</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">최한월 &ge; 18℃</span>
+              </button>
+              <button onclick="checkStep1('B')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 hover:bg-slate-800 transition text-center">
+                <span class="block font-bold font-mono text-base text-cyan-400">B</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">연강수 &lt; 500mm</span>
+              </button>
+              <button onclick="checkStep1('C')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 hover:bg-slate-800 transition text-center">
+                <span class="block font-bold font-mono text-base text-cyan-400">C</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">-3℃ ~ 18℃</span>
+              </button>
+              <button onclick="checkStep1('D')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 hover:bg-slate-800 transition text-center">
+                <span class="block font-bold font-mono text-base text-cyan-400">D</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">최한월 &lt; -3℃</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2 Box -->
+          <div id="step2Box" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 transition-all opacity-40 pointer-events-none">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-400 font-mono">자물쇠 2 : 건습 계절성(소문자) 해독</span>
+              <span id="badgeStep2" class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">잠김</span>
+            </div>
+            <p class="text-xs text-slate-300 mb-3">
+              한여름(7월: 6mm)이 겨울(1월: 115mm)보다 극도로 건조합니다. '여름 가뭄'을 뜻하는 암호는?
+            </p>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="checkStep2('f')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500 hover:bg-slate-800 transition text-center">
+                <span class="block font-bold font-mono text-base text-amber-400">f</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">연중 습윤 (fehlt)</span>
+              </button>
+              <button onclick="checkStep2('w')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500 hover:bg-slate-800 transition text-center">
+                <span class="block font-bold font-mono text-base text-amber-400">w</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">겨울 건조 (winter dry)</span>
+              </button>
+              <button onclick="checkStep2('s')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500 hover:bg-slate-800 transition text-center">
+                <span class="block font-bold font-mono text-base text-amber-400">s</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">여름 건조 (summer dry)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3 Box -->
+          <div id="step3Box" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 transition-all opacity-40 pointer-events-none">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono">자물쇠 3 : 여름철 더위 강도 해독</span>
+              <span id="badgeStep3" class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">잠김</span>
+            </div>
+            <p class="text-xs text-slate-300 mb-3">
+              가장 더운 7월 평균기온이 <strong>25.8℃</strong>로 집계되었습니다. 여름 기온 3차 기호는?
+            </p>
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="checkStep3('a')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500 hover:bg-slate-800 transition text-center">
+                <span class="block font-bold font-mono text-base text-emerald-400">a</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">더운 여름 (최난월 &ge; 22℃)</span>
+              </button>
+              <button onclick="checkStep3('b')" class="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500 hover:bg-slate-800 transition text-center">
+                <span class="block font-bold font-mono text-base text-emerald-400">b</span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">서늘한 여름 (최난월 &lt; 22℃)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Decryption Alert Box -->
+          <div id="cipherAlert" class="hidden p-3.5 rounded-xl border text-xs flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i id="cipherAlertIcon" class="text-base"></i>
+              <span id="cipherAlertMsg" class="font-medium"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- STAGE 2: CLASSIFIED DOSSIER - 4 CHARACTERISTICS (기밀 해제) -->
+    <!-- ========================================== -->
+    <section id="sectionStage2" class="hidden flex flex-col gap-6">
+      
+      <!-- Banner -->
+      <div class="bg-emerald-950/30 border border-emerald-500/40 rounded-2xl p-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider block mb-1">
+            <i class="fa-solid fa-unlock-keyhole"></i> 보안 레벨 해제 : Csa (지중해성 기후)
+          </span>
+          <h2 class="text-xl font-black text-white">지중해성 기후의 4대 메커니즘 현장 프로파일링</h2>
+          <p class="text-xs text-slate-300 mt-1">
+            기호 암호 해독 완료! 이제 여름 고온건조와 겨울 온난습윤이 빚어낸 4가지 독특한 생태·생활 양식을 분석하세요.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-mono text-slate-400">퀘스트 달성:</span>
+          <span class="text-lg font-mono font-bold text-emerald-400" id="questCount">0 / 4</span>
+        </div>
+      </div>
+
+      <!-- 4 Characteristic Quest Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <!-- Card 1: 식생 & 농업 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between" id="questCard1">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-amber-400 flex items-center gap-2">
+                <i class="fa-solid fa-leaf"></i> 01. 식생 & 농업의 생존 전략
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400" id="qBadge1">미해결</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-2">올리브 잎이 가죽처럼 두껍고 반질반질한 이유는?</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              지중해의 수목(올리브, 코르크참나무, 오렌지)은 타는 듯한 여름 햇빛 아래서 말라 죽지 않기 위해 독특한 잎(경엽, 硬葉)을 발달시켰습니다.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <button onclick="solveQuest(1, false)" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 text-xs text-slate-300 transition">
+              A. 겨울철 폭설의 무게를 버티기 위해 단단하게 진화했다.
+            </button>
+            <button onclick="solveQuest(1, true)" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500 text-xs text-slate-300 transition group">
+              <span class="text-amber-400 font-bold group-hover:underline">B. 왁스(큐티클)층으로 여름철 수분 증발을 철저히 차단한다.</span>
+            </button>
+          </div>
+          <div id="qExplain1" class="hidden mt-3 p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200">
+            <strong>정답 분석:</strong> 여름 가뭄을 견디는 <strong>경엽수림</strong>의 특성입니다. 여름엔 올리브·포도 같은 <strong>수목 농업</strong>을, 비가 오는 겨울엔 <strong>밀(파스타용 듀럼밀)</strong>을 재배합니다.
+          </div>
+        </div>
+
+        <!-- Card 2: 가옥 구조 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between" id="questCard2">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-cyan-400 flex items-center gap-2">
+                <i class="fa-solid fa-house"></i> 02. 산토리니 하얀 집의 건축 공학
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400" id="qBadge2">미해결</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-2">왜 벽을 새하얗게 칠하고 창문을 극단적으로 작게 냈을까?</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              에어컨이 없던 고대부터 지중해인들은 벽 두께를 50cm 이상 두껍게 쌓고 흰 석회 회벽을 칠했습니다.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <button onclick="solveQuest(2, true)" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-xs text-slate-300 transition group">
+              <span class="text-cyan-400 font-bold group-hover:underline">A. 태양열 반사(흰 벽) + 열기 차단 및 실내 단열(작은 창문·두꺼운 벽)</span>
+            </button>
+            <button onclick="solveQuest(2, false)" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 text-xs text-slate-300 transition">
+              B. 겨울철 바다에서 불어오는 습한 바람을 통풍시키기 위해서
+            </button>
+          </div>
+          <div id="qExplain2" class="hidden mt-3 p-3 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-200">
+            <strong>정답 분석:</strong> 강렬한 여름 뙤약볕을 튕겨내고(반사), 실내로 바깥의 뜨거운 열기가 들어오지 못하게 차단하는 패시브 하우스 공학입니다.
+          </div>
+        </div>
+
+        <!-- Card 3: 대기 대순환 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between" id="questCard3">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-rose-400 flex items-center gap-2">
+                <i class="fa-solid fa-wind"></i> 03. 기압대의 줄다리기 (기후 원인)
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400" id="qBadge3">미해결</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-2">여름철 지중해 하늘에 '비구름 뚜껑'을 덮는 주범은?</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              위도 30~40°는 계절에 따라 지구 대기 대순환 바람과 기압대가 남북으로 오르내리는 전선입니다.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <button onclick="solveQuest(3, true)" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-rose-500 text-xs text-slate-300 transition group">
+              <span class="text-rose-400 font-bold group-hover:underline">A. 북상한 아열대 고압대의 강력한 하강 기류 (구름 소멸)</span>
+            </button>
+            <button onclick="solveQuest(3, false)" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 text-xs text-slate-300 transition">
+              B. 적도에서 올라오는 강력한 태풍과 몬순 저기압
+            </button>
+          </div>
+          <div id="qExplain3" class="hidden mt-3 p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-xs text-rose-200">
+            <strong>정답 분석:</strong> <strong>여름</strong>에는 아열대 고압대가 덮쳐 뙤약볕이 내리쬐고, <strong>겨울</strong>에는 아열대 고압대가 남하하면서 편서풍과 전선대가 비를 뿌립니다!
+          </div>
+        </div>
+
+        <!-- Card 4: 현대 이슈 & 관광 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between" id="questCard4">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-emerald-400 flex items-center gap-2">
+                <i class="fa-solid fa-fire"></i> 04. 산불 재난과 바캉스의 역설
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400" id="qBadge4">미해결</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-2">왜 전 유럽인은 바캉스를 오고, 소방관은 긴장할까?</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              매년 여름 그리스, 스페인 해변은 관광객으로 붐비지만 동시에 국가 비상사태급 산불이 번집니다.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <button onclick="solveQuest(4, true)" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500 text-xs text-slate-300 transition group">
+              <span class="text-emerald-400 font-bold group-hover:underline">A. 풍부한 일조량(관광 천국) ↔ 바짝 마른 숲과 고온 건조풍(산불 화약고)</span>
+            </button>
+            <button onclick="solveQuest(4, false)" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 text-xs text-slate-300 transition">
+              B. 겨울철 잦은 눈보라로 인해 여름에만 여행이 가능하기 때문
+            </button>
+          </div>
+          <div id="qExplain4" class="hidden mt-3 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-200">
+            <strong>정답 분석:</strong> 흐린 날씨의 서·북유럽인들에게 구름 없는 지중해 여름은 최고의 휴양지이지만, 바짝 마른 관목림(마키)은 산불에 극도로 취약한 양면성을 가집니다.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Final Master Report Modal / Footer -->
+      <div id="finalReportBox" class="hidden bg-gradient-to-r from-cyan-950 to-slate-900 border border-cyan-500/50 rounded-2xl p-6 text-center shadow-2xl">
+        <div class="w-12 h-12 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 flex items-center justify-center text-xl font-bold mx-auto mb-3">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-1">지중해성 기후(Csa) 프로파일링 최종 수료</h3>
+        <p class="text-xs text-slate-300 max-w-xl mx-auto leading-relaxed">
+          "겨울 온난습윤($C$), 여름 극건조($s$), 무더운 여름($a$)"이라는 3대 조건이 지중해의 식탁, 가옥, 자연재해와 세계적 휴양지를 형성한 모든 인과관계를 완벽히 규명했습니다.
+        </p>
+        <button onclick="location.reload()" class="mt-4 px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition">
+          작전 다시 수행하기 <i class="fa-solid fa-rotate-right ml-1"></i>
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    // Rome Monthly Data (Csa)
+    const monthlyRain = [115, 80, 65, 55, 35, 15, 6, 18, 65, 110, 130, 120];
+    const monthlyTemp = [8.5, 9.2, 11.8, 14.5, 19.0, 23.2, 25.8, 25.5, 22.0, 17.5, 13.0, 9.4];
+
+    let currentCipher = { c1: null, c2: null, c3: null };
+    let solvedQuests = new Set();
+
+    function initApp() {
+      renderBars();
+    }
+
+    function renderBars() {
+      const container = document.getElementById("chartBars");
+      container.innerHTML = "";
+      const maxRain = Math.max(...monthlyRain);
+
+      monthlyRain.forEach((rain, i) => {
+        const heightPct = (rain / maxRain) * 100;
+        const col = document.createElement("div");
+        col.className = "flex-1 flex flex-col justify-end items-center h-full group relative";
+
+        const tip = document.createElement("div");
+        tip.className = "absolute -top-7 hidden group-hover:flex bg-slate-950 border border-slate-700 px-1.5 py-0.5 rounded text-[10px] font-mono z-20 whitespace-nowrap text-slate-200";
+        tip.textContent = `${i+1}월: ${monthlyTemp[i]}℃ / ${rain}mm`;
+
+        const bar = document.createElement("div");
+        // Highlight July dry drop
+        if (i === 6) {
+          bar.className = "w-full bg-amber-500 rounded-t transition-all";
+        } else {
+          bar.className = "w-full bg-sky-500/70 hover:bg-sky-400 rounded-t transition-all";
+        }
+        bar.style.height = `${Math.max(6, heightPct)}%`;
+
+        col.appendChild(tip);
+        col.appendChild(bar);
+        container.appendChild(col);
+      });
+    }
+
+    // Step 1 Check
+    function checkStep1(val) {
+      if (val === 'C') {
+        currentCipher.c1 = 'C';
+        document.getElementById("slot1Text").textContent = 'C';
+        document.getElementById("slot1").className = "w-16 h-20 rounded-xl bg-cyan-500/20 border-2 border-cyan-500 text-cyan-300 font-mono-code flex flex-col items-center justify-center cipher-slot font-black text-2xl";
+        document.getElementById("badgeStep1").textContent = "해독 완료";
+        document.getElementById("badgeStep1").className = "text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono";
+        document.getElementById("step1Box").classList.add("opacity-60", "pointer-events-none");
+
+        // Unlock Step 2
+        const s2 = document.getElementById("step2Box");
+        s2.className = "bg-slate-900 border border-slate-800 rounded-2xl p-5 transition-all opacity-100 pointer-events-auto border-l-4 border-l-amber-500";
+        document.getElementById("badgeStep2").textContent = "해독 진행 중";
+        document.getElementById("badgeStep2").className = "text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono";
+
+        showAlert(true, "자물쇠 1 해제! [C] 온대 기후군 판정 (최한월 8.5℃ &ge; -3℃)");
+      } else {
+        showAlert(false, `오답: [${val}]는 조건에 맞지 않습니다. 최한월 8.5℃는 온대(-3℃~18℃)에 해당합니다.`);
+      }
+    }
+
+    // Step 2 Check
+    function checkStep2(val) {
+      if (val === 's') {
+        currentCipher.c2 = 's';
+        document.getElementById("slot2Text").textContent = 's';
+        document.getElementById("slot2").className = "w-16 h-20 rounded-xl bg-amber-500/20 border-2 border-amber-500 text-amber-300 font-mono-code flex flex-col items-center justify-center cipher-slot font-black text-2xl";
+        document.getElementById("badgeStep2").textContent = "해독 완료";
+        document.getElementById("badgeStep2").className = "text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono";
+        document.getElementById("step2Box").classList.add("opacity-60", "pointer-events-none");
+
+        // Unlock Step 3
+        const s3 = document.getElementById("step3Box");
+        s3.className = "bg-slate-900 border border-slate-800 rounded-2xl p-5 transition-all opacity-100 pointer-events-auto border-l-4 border-l-emerald-500";
+        document.getElementById("badgeStep3").textContent = "해독 진행 중";
+        document.getElementById("badgeStep3").className = "text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono";
+
+        showAlert(true, "자물쇠 2 해제! [s] 여름 건조 (독일어 Sommer-trocken: 7월 강수 6mm 극건조)");
+      } else {
+        showAlert(false, `오답: [${val}]는 아닙니다. 여름 강수량(6mm)이 겨울(115mm)보다 극도로 적으므로 '여름 건조(s)'입니다.`);
+      }
+    }
+
+    // Step 3 Check
+    function checkStep3(val) {
+      if (val === 'a') {
+        currentCipher.c3 = 'a';
+        document.getElementById("slot3Text").textContent = 'a';
+        document.getElementById("slot3").className = "w-16 h-20 rounded-xl bg-emerald-500/20 border-2 border-emerald-500 text-emerald-300 font-mono-code flex flex-col items-center justify-center cipher-slot font-black text-2xl";
+        document.getElementById("badgeStep3").textContent = "해독 완료";
+        document.getElementById("badgeStep3").className = "text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono";
+        document.getElementById("step3Box").classList.add("opacity-60", "pointer-events-none");
+
+        showAlert(true, "최종 암호 완성! [Csa] 지중해성 기후 해독 성공! 2단계 기밀 문서가 해금됩니다.");
+
+        // Transition to Stage 2 after 1.2s
+        setTimeout(() => {
+          document.getElementById("pillStage1").className = "px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 font-bold";
+          document.getElementById("pillStage2").className = "px-2.5 py-1 rounded-md bg-emerald-500 text-slate-950 font-bold";
+          document.getElementById("sectionStage1").classList.add("hidden");
+          document.getElementById("sectionStage2").classList.remove("hidden");
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 1200);
+      } else {
+        showAlert(false, `오답: 최난월(7월) 기온이 25.8℃로 22℃ 이상이므로 뜨거운 여름을 뜻하는 'a'입니다.`);
+      }
+    }
+
+    function showAlert(isSuccess, msg) {
+      const box = document.getElementById("cipherAlert");
+      const icon = document.getElementById("cipherAlertIcon");
+      const text = document.getElementById("cipherAlertMsg");
+
+      box.classList.remove("hidden");
+      if (isSuccess) {
+        box.className = "p-3.5 rounded-xl border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 flex items-center justify-between";
+        icon.className = "fa-solid fa-circle-check text-emerald-400";
+      } else {
+        box.className = "p-3.5 rounded-xl border border-rose-500/40 bg-rose-950/40 text-rose-300 flex items-center justify-between animate-pulse";
+        icon.className = "fa-solid fa-triangle-exclamation text-rose-400";
+      }
+      text.textContent = msg;
+    }
+
+    // Quest Solver
+    function solveQuest(qNum, isCorrect) {
+      if (!isCorrect) {
+        alert("원인 분석이 맞지 않습니다. 지중해의 여름 고온건조 및 기압대 특성을 다시 생각해 보세요!");
+        return;
+      }
+      solvedQuests.add(qNum);
+      document.getElementById(`qBadge${qNum}`).textContent = "해결 완료";
+      document.getElementById(`qBadge${qNum}`).className = "text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold";
+      document.getElementById(`qExplain${qNum}`).classList.remove("hidden");
+      document.getElementById(`questCard${qNum}`).classList.add("border-emerald-500/50");
+
+      document.getElementById("questCount").textContent = `${solvedQuests.size} / 4`;
+
+      if (solvedQuests.size === 4) {
+        document.getElementById("finalReportBox").classList.remove("hidden");
+        document.getElementById("finalReportBox").scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    window.onload = initApp;
+  </script>
+</body>
+</html>
